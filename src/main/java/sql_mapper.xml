@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+	<property>
+		<name>user_add</name>
+		<value>insert into user_add values(?,?) ON DUPLICATE KEY UPDATE addCount=?</value>
+	</property>
+
+	 <property>
+		<name>user_visit</name>
+		<value>insert into user_visit values(?,?,?) ON DUPLICATE KEY UPDATE visitcount=?,visitAllCount=?</value>
+	</property>
+	<property>
+		<name>flow_pv</name>
+		<value>insert into mobile_phonepv values(?,?,?) ON DUPLICATE KEY UPDATE count=?</value>
+	</property>
+
+	<!--<property>
+		<name>driver</name>
+		<value>com.mysql.jdbc.Driver</value>
+	</property> -->
+
+</configuration>

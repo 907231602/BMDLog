@@ -12,9 +12,24 @@ public class UserDimention implements WritableComparable<UserDimention>{
 	private String logEN;
 	private String logUUD;
 	
-	/*private String logP_URL;
-	private String logU_MID;
-	*/
+	private UserMemberDimention userMemberDimention=new UserMemberDimention();
+	private SessionDimention sessionDimention=new SessionDimention();
+
+	public SessionDimention getSessionDimention() {
+		return sessionDimention;
+	}
+
+	public void setSessionDimention(SessionDimention sessionDimention) {
+		this.sessionDimention = sessionDimention;
+	}
+
+	public UserMemberDimention getUserMemberDimention() {
+		return userMemberDimention;
+	}
+
+	public void setUserMemberDimention(UserMemberDimention userMemberDimention) {
+		this.userMemberDimention = userMemberDimention;
+	}
 
 	public String getLogDate() {
 		return logDate;
@@ -45,6 +60,8 @@ public class UserDimention implements WritableComparable<UserDimention>{
 		out.writeUTF(logDate);
 		out.writeUTF(logEN);
 		out.writeUTF(logUUD);
+		this.userMemberDimention.write(out);
+		this.sessionDimention.write(out);
 	}
 
 	public void readFields(DataInput in) throws IOException {
@@ -52,6 +69,8 @@ public class UserDimention implements WritableComparable<UserDimention>{
 	this.logDate=in.readUTF();
 	this.logEN=in.readUTF();
 	this.logUUD=in.readUTF();
+	this.userMemberDimention.readFields(in);
+	this.sessionDimention.readFields(in);
 		
 	}
 
@@ -72,6 +91,15 @@ public class UserDimention implements WritableComparable<UserDimention>{
 		if (tmp!=0) {
 			return tmp;
 		}
+		tmp=this.userMemberDimention.compareTo(arg0.userMemberDimention);
+		if (tmp!=0) {
+			return tmp;
+		}
+		tmp=this.sessionDimention.compareTo(arg0.sessionDimention);
+		if (tmp!=0) {
+			return tmp;
+		}
+		
 		return 0;
 	}
 	

@@ -117,5 +117,12 @@ public class SessionDimention implements WritableComparable<SessionDimention> {
 		return 0;
 	}
 
+	@Override
+	public String toString() {
+		return "SessionDimention [sessionUSD=" + sessionUSD + ", sessionNumber=" + sessionNumber + ", sessionLength="
+				+ sessionLength + ", sessionMax=" + sessionMax + ", sessionMin=" + sessionMin + ", sessionShort="
+				+ sessionShort + "]";
+	}
+
 
 }

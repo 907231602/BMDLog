@@ -11,8 +11,21 @@
 		<value>insert into user_visit values(?,?,?) ON DUPLICATE KEY UPDATE visitcount=?,visitAllCount=?</value>
 	</property>
 	<property>
-		<name>flow_pv</name>
-		<value>insert into mobile_phonepv values(?,?,?) ON DUPLICATE KEY UPDATE count=?</value>
+		<name>member_add</name>
+		<value>insert into member_add values(?,?,?) ON DUPLICATE KEY UPDATE addMember=?,memberAllCount=?</value>
+	</property>
+	<property>
+		<name>member_visit</name>
+		<value>insert into member_visit values(?,?) ON DUPLICATE KEY UPDATE memberCount=?</value>
+	</property>
+	
+	<property>
+		<name>session_add</name>
+		<value>insert into session_add values(?,?) ON DUPLICATE KEY UPDATE sessionCount=?</value>
+	</property>
+	<property>
+		<name>session_length</name>
+		<value>insert into session_length values(?,?,?) ON DUPLICATE KEY UPDATE sessionChaValue=?,sessionAvgLength=?</value>
 	</property>
 
 	<!--<property>

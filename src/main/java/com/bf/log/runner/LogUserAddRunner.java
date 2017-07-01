@@ -3,6 +3,7 @@ package com.bf.log.runner;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
@@ -38,12 +39,12 @@ public class LogUserAddRunner implements Tool {
 		job.setMapperClass(LogUserAnalyzeMapper.class);
 		
 		job.setMapOutputKeyClass(UserDimention.class);
-		job.setMapOutputValueClass(IntWritable.class);
+		job.setMapOutputValueClass(LongWritable.class);
 		
 		job.setReducerClass(LogUserReduce.class);
 		
 		job.setOutputKeyClass(UserDimention.class);
-		job.setOutputValueClass(IntWritable.class);
+		job.setOutputValueClass(LongWritable.class);
 		
 		
 		FileInputFormat.setInputPaths(job, new Path("hdfs://yanjijun1:9000/bmdout/part-r-00000"));

@@ -259,7 +259,9 @@ public class LogUserFormat extends OutputFormat<UserDimention, LongWritable> {
 			
 			
 			try {
-				ps.close();
+				for (String entry : psMaps.keySet()) {
+					psMaps.get(entry).close();
+				}
 				con.close();
 
 			} catch (SQLException e) {
